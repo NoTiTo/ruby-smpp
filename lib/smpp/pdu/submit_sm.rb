@@ -45,7 +45,7 @@ class Smpp::Pdu::SubmitSm < Smpp::Pdu::Base
     end
 
     seq ||= next_sequence_number
-
+    pdu_body.force_encoding("ASCII-8BIT")
     super(SUBMIT_SM, 0, seq, pdu_body)        
   end
   
