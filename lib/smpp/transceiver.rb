@@ -60,7 +60,7 @@ class Smpp::Transceiver < Smpp::Base
       0.upto(parts.size-1) do |i|
         udh = sprintf("%c", 5)            # UDH is 5 bytes.
         udh << sprintf("%c%c", 0, 3)      # This is a concatenated message 
-        udh << sprintf("%c", message_id)  # The ID for the entire concatenated message
+        udh << sprintf("%s", message_id)  # The ID for the entire concatenated message
         udh << sprintf("%c", parts.size)  # How many parts this message consists of
         udh << sprintf("%c", i+1)         # This is part i+1
         
